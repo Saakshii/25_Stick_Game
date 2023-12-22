@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //25 stick game
+      let stick1 = 25,
+        stick2 = 25;
+      let playTurn = true;
+      let x = 0,
+        y = 0,
+        userTurn,
+        computerTurn;
+      while ((stick1 > 0) & (stick2 > 0)) {
+        if (playTurn) {
+          userTurn = prompt("Enter your choice in between 1-4");
+          userTurn = Number.parseInt(userTurn);
+          if (
+            userTurn == 1 ||
+            userTurn == 2 ||
+            userTurn == 3 ||
+            userTurn == 4
+          ) {
+            stick1 -= userTurn;
+            alert(`User Choice is: ${userTurn} & remaining sticks: ${stick1}`);
+            x++;
+            playTurn = false;
+          } else {
+            alert("Please enter valid choice");
+          }
+        } else {
+          computerTurn = 5 - userTurn;
+          stick2 -= computerTurn;
+          alert(
+            `Computer Choice is: ${computerTurn} & remaining sticks: ${stick2}`
+          );
+          y++;
+          playTurn = true;
+        }
+      }
+      if (stick2 > stick1) {
+        alert("User Win");
+      } else {
+        alert("Computer Win");
+      }
+    </script>
+  </body>
+</html>
